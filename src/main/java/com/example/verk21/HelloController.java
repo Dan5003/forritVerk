@@ -1,5 +1,6 @@
 package com.example.verk21;
 
+import Vinnsla.Dict;
 import Vinnsla.Strengir;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,6 +25,8 @@ public class HelloController {
     private TextArea fxMeaningDisplay;
 
     private Strengir strengir = new Strengir();
+
+    private Dict dict = new Dict();
 
 
     @FXML
@@ -93,15 +96,12 @@ public class HelloController {
         if (searchWord.isEmpty()) {
             fxMeaningDisplay.setText("Sláðu inn leitarorð!"); // Prompt for input if empty
         } else {
-            // Here you'll call your dictionary lookup function with searchWord
-            // Assuming you have a dictionary lookup method similar to:
-            // String meaning = lookupInDictionary(searchWord);
-            // For now, we'll simulate not finding the word:
-            String meaning = null; // Simulate your dictionary lookup
+            // Use the Dict class to look up the dictionary meaning of the searchWord
+            String meaning = dict.lookupInDictionary(searchWord);
 
-            if (meaning == null) {
+            if (meaning.equals(searchWord + " fannst ekki í orðabókinni.") || meaning.equals("Villa við að leita að orði.")) {
                 // If no meaning found, display an error message
-                fxMeaningDisplay.setText(searchWord + " fannst ekki í orðabókinni.");
+                fxMeaningDisplay.setText(meaning);
             } else {
                 // Display the found meaning
                 fxMeaningDisplay.setText(meaning);
