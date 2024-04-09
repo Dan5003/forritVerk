@@ -24,15 +24,36 @@ public class Dict {
             if (!wordNode.isMissingNode()) {
                 JsonNode meaningsNode = wordNode.path("MEANINGS");
                 if (!meaningsNode.isMissingNode()) {
-                    String meaning = meaningsNode.toString();
-                    return meaning;
+                    StringBuilder meaningBuilder = new StringBuilder();
+
+                    meaningsNode.fields().forEachRemaining(entry -> {
+                        String key = entry.getKey(); // The sense number, not usually displayed
+                        JsonNode meaningInfo = entry.getValue();
+
+                        String partOfSpeech = meaningInfo.get(0).asText();
+                        String definition = meaningInfo.get(1).asText();
+
+                        meaningBuilder.append(partOfSpeech).append(": ").append(definition).append("\n");
+
+                        if (meaningInfo.size() > 3) {
+                            JsonNode examples = meaningInfo.get(3);
+                            if (examples.isArray()) {
+                                meaningBuilder.append("Example: ");
+                                examples.forEach(example -> meaningBuilder.append(example.asText()).append("; "));
+                                meaningBuilder.append("\n");
+                            }
+                        }
+                    });
+
+                    return meaningBuilder.toString();
                 }
             }
+
             return searchWord + " fannst ekki í orðabókinni.";
         } catch (Exception e) {
             e.printStackTrace();
             return "Villa við að leita að orði.";
         }
     }
-}
 
+}
