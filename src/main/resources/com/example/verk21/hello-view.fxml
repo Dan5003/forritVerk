@@ -106,10 +106,15 @@
             <Button mnemonicParsing="false" onAction="#onTeljaOrd" prefHeight="100.0" prefWidth="150.0" text="Telja orð!" />
          </children>
       </HBox>
-      <HBox prefHeight="100.0" prefWidth="600.0" spacing="5.0">
+      <HBox prefHeight="200.0" prefWidth="600.0" spacing="5.0">
          <children>
-            <TextArea fx:id="fxMeaningDisplay" prefHeight="100.0" prefWidth="295.0" promptText="Merking orðs birtist hér..." editable="false" style="-fx-background-color: #ffffff; -fx-border-color: #6b6a6a; -fx-border-width: 2;" />
-            <Button fx:id="fxDictionaryCheck" onAction="#onDictionaryCheck" prefHeight="100.0" prefWidth="150.0" text="Í orðabók?" />
+            <TextArea fx:id="fxMeaningDisplay" HBox.hgrow="ALWAYS" prefHeight="300.0" prefWidth="600.0" promptText="Merking orðs birtist hér..." editable="false" style="-fx-background-color: #ffffff; -fx-border-color: #6b6a6a; -fx-border-width: 2;" />
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="600.0" spacing="5.0" alignment="CENTER">
+         <children>
+                  <Button fx:id="fxDictionaryCheck" onAction="#onDictionaryCheck" prefHeight="50.0" prefWidth="150.0" text="Í orðabók?" />
+                  <Button fx:id="fxCheckRandomWord" onAction="#onGetRandomWord" prefHeight="50.0" prefWidth="150.0" text="Random Word" />
          </children>
       </HBox>
    </children>

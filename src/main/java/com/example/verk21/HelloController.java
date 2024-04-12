@@ -91,22 +91,27 @@ public class HelloController {
 
 
     public void onDictionaryCheck(ActionEvent actionEvent) {
-        String searchWord = fxLeitarord.getText().trim(); // Get and trim the input from fxLeitarord
+        String searchWord = fxLeitarord.getText().trim();
 
         if (searchWord.isEmpty()) {
-            fxMeaningDisplay.setText("Sláðu inn leitarorð!"); // Prompt for input if empty
+            fxMeaningDisplay.setText("Sláðu inn leitarorð!");
         } else {
-            // Use the Dict class to look up the dictionary meaning of the searchWord
+
             String meaning = dict.lookupInDictionary(searchWord);
 
             if (meaning.equals(searchWord + " fannst ekki í orðabókinni.") || meaning.equals("Villa við að leita að orði.")) {
-                // If no meaning found, display an error message
+
                 fxMeaningDisplay.setText(meaning);
             } else {
-                // Display the found meaning
+
                 fxMeaningDisplay.setText(meaning);
             }
         }
+    }
+    @FXML
+    public void onGetRandomWord(ActionEvent actionEvent) {
+        String randomWord = dict.getRandomWord();
+        fxMeaningDisplay.setText(randomWord);
     }
 //
 //    @FXML
