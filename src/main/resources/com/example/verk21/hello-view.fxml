@@ -101,7 +101,7 @@
          <children>
             <TextArea fx:id="fxMeaning" prefHeight="100.0" prefWidth="240.0" promptText="Type your query here..." style="-fx-background-color: #ffffff; -fx-border-color: #6b6a6a; -fx-border-width: 2;" />
             <Button fx:id="fxDictionaryCheck" onAction="#onDictionaryCheck" prefHeight="100.0" prefWidth="150.0" text="Dictionary" />
-            <Button layoutX="210.0" layoutY="10.0" onAction="#onDictionaryCheck" prefHeight="100.0" prefWidth="150.0" text="Random Word" />
+            <Button layoutX="210.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0" text="Random Word" />
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="550.0">
@@ -110,7 +110,7 @@
                <children>
                   <Label fx:id="dictName" wrapText="true">
                      <VBox.margin>
-                        <Insets left="50.0" />
+                        <Insets />
                      </VBox.margin>
                   </Label>
                </children>
