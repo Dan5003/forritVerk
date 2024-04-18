@@ -42,7 +42,7 @@ public class Dict {
                         if (meaningInfo.size() > 3) {
                             JsonNode examples = meaningInfo.get(3);
                             if (examples.isArray()) {
-                                meaningBuilder.append("Dæmi: ");
+                                meaningBuilder.append("Example: ");
                                 examples.forEach(example -> meaningBuilder.append(example.asText()).append("; "));
                                 meaningBuilder.append("\n");
                             }
@@ -53,7 +53,7 @@ public class Dict {
                 }
             }
 
-            return searchWord + " No word found";
+            return "No matching word found";
         } catch (Exception e) {
             e.printStackTrace();
             return "search the word.";
@@ -72,7 +72,7 @@ public class Dict {
             }
             String randomWord = words.get(new Random().nextInt(words.size()));
             String meaning = lookupInDictionary(randomWord);
-            if (meaning.equals(randomWord + " fannst ekki í orðabókinni.") || meaning.equals("Villa við að leita að orði.")) {
+            if (meaning.equals(randomWord + " Found no words.") || meaning.equals("Error finding word.")) {
                 return meaning;
             } else {
                 return randomWord.toUpperCase() + ":\n" + meaning;

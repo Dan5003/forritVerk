@@ -27,8 +27,6 @@ public class HelloController {
     @FXML
     private Label dictName;
 
-    @FXML
-    private Label dictDef;
 
     private Strengir strengir = new Strengir();
 
@@ -102,12 +100,12 @@ public class HelloController {
 
 
     public void onDictionaryCheck(ActionEvent actionEvent) {
-      
+
         String searchWord = fxMeaning.getText().trim(); // Get and trim the input from fxLeitarord
 
         if (searchWord.isEmpty()) {
             fxMeaning.setPromptText("write a word for the dictionary!"); // Prompt for input if empty
-           } 
+           }
         else {
 
             String meaning = dict.lookupInDictionary(searchWord);
@@ -126,7 +124,7 @@ public class HelloController {
     @FXML
     public void onGetRandomWord(ActionEvent actionEvent) {
         String randomWord = dict.getRandomWord();
-        fxMeaningDisplay.setText(randomWord);
+        dictName.setText(randomWord);
     }
 //
 //    @FXML
