@@ -97,8 +97,14 @@
             <Button mnemonicParsing="false" onAction="#onTeljaOrd" prefHeight="100.0" prefWidth="150.0" text="Count" />
          </children>
       </HBox>
-      <HBox prefHeight="100.0" prefWidth="600.0" spacing="5.0">
+      <HBox prefHeight="200.0" prefWidth="600.0" spacing="5.0">
          <children>
+            <TextArea fx:id="fxMeaningDisplay" HBox.hgrow="ALWAYS" prefHeight="300.0" prefWidth="600.0" promptText="Merking orðs birtist hér..." editable="false" style="-fx-background-color: #ffffff; -fx-border-color: #6b6a6a; -fx-border-width: 2;" />
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="600.0" spacing="5.0" alignment="CENTER">
+         <children>
+
             <TextArea fx:id="fxMeaning" prefHeight="100.0" prefWidth="240.0" promptText="Type your query here..." style="-fx-background-color: #ffffff; -fx-border-color: #6b6a6a; -fx-border-width: 2;" />
             <Button fx:id="fxDictionaryCheck" onAction="#onDictionaryCheck" prefHeight="100.0" prefWidth="150.0" text="Dictionary" />
             <Button layoutX="210.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0" text="Random Word" />

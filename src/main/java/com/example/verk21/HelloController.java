@@ -102,13 +102,16 @@ public class HelloController {
 
 
     public void onDictionaryCheck(ActionEvent actionEvent) {
+      
         String searchWord = fxMeaning.getText().trim(); // Get and trim the input from fxLeitarord
 
         if (searchWord.isEmpty()) {
             fxMeaning.setPromptText("write a word for the dictionary!"); // Prompt for input if empty
-        } else {
-            // Use the Dict class to look up the dictionary meaning of the searchWord
+           } 
+        else {
+
             String meaning = dict.lookupInDictionary(searchWord);
+
 
 
             if (meaning.equals(searchWord + " was not found in the dictionary") || meaning.equals("Error searching for a word")) {
@@ -119,6 +122,11 @@ public class HelloController {
                 dictName.setText(meaning);
             }
         }
+    }
+    @FXML
+    public void onGetRandomWord(ActionEvent actionEvent) {
+        String randomWord = dict.getRandomWord();
+        fxMeaningDisplay.setText(randomWord);
     }
 //
 //    @FXML
