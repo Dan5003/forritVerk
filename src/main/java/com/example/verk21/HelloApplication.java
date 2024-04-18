@@ -9,7 +9,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 400, 277);
+        Scene scene = new Scene(fxmlLoader.load(), 600, 398);
         stage.setTitle("Strings");
         stage.setScene(scene);
         stage.setResizable(false);
