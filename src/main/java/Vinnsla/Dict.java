@@ -21,7 +21,7 @@ public class Dict {
             String filename = "/data/" + firstLetter + ".json";
             InputStream is = getClass().getResourceAsStream(filename);
             if (is == null) {
-                return "Orðabók fyrir stafinn " + firstLetter + " fannst ekki.";
+                return "words for " + firstLetter + " not found.";
             }
             JsonNode rootNode = objectMapper.readTree(is);
             JsonNode wordNode = rootNode.path(searchWord.toUpperCase());
@@ -53,10 +53,10 @@ public class Dict {
                 }
             }
 
-            return searchWord + " fannst ekki í orðabókinni.";
+            return searchWord + " No word found";
         } catch (Exception e) {
             e.printStackTrace();
-            return "Villa við að leita að orði.";
+            return "search the word.";
         }
     }
     public String getRandomWord() {

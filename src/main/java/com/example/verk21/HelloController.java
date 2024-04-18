@@ -22,7 +22,13 @@ public class HelloController {
     private Label fxFjoldiOrda;
 
     @FXML
-    private TextArea fxMeaningDisplay;
+    private TextArea fxMeaning;
+
+    @FXML
+    private Label dictName;
+
+    @FXML
+    private Label dictDef;
 
     private Strengir strengir = new Strengir();
 
@@ -34,15 +40,15 @@ public class HelloController {
         try {
             String leitarord = fxLeitarord.getText();
             if (fxLeitarord.getText().isEmpty()) {
-                fxStadsetningOrds.setText("Sláðu inn leitarorð!");
+                fxStadsetningOrds.setText("No word inputted");
             } else if (strengir.leita(leitarord) == -1) {
-                fxStadsetningOrds.setText(leitarord+"\nekki í texta");
+                fxStadsetningOrds.setText(leitarord+" is not in text");
             } else {
                 String numer = Integer.toString(strengir.leita(leitarord));
-                fxStadsetningOrds.setText("Orð er númer "+ numer);
+                fxStadsetningOrds.setText("The number of words is: "+ numer);
             }
         } catch (NullPointerException e) {
-            fxStadsetningOrds.setText("Enginn texti vistaður");
+            fxStadsetningOrds.setText("No text was inputted");
         }
     }
 
@@ -61,9 +67,14 @@ public class HelloController {
     public void onTeljaOrd(ActionEvent actionEvent) {
         try {
             String fjoldi = Integer.toString(strengir.fjoldiOrda());
-            fxFjoldiOrda.setText("Textinn er "+fjoldi + " orð");
+            if (fjoldi.equals("1")){
+                fxFjoldiOrda.setText("There is only 1 word");
+            }
+            else {
+                fxFjoldiOrda.setText("There are " + fjoldi + " words");
+            }
         } catch (NullPointerException e) {
-            fxFjoldiOrda.setText("Vantar að bæta við texta!");
+            fxFjoldiOrda.setText("No words found");
         }
     }
 
@@ -74,7 +85,7 @@ public class HelloController {
     public void onVistaTexta(ActionEvent actionEvent) {
         String lesinnTexti = fxTextinn.getText();
         if (fxTextinn.getText().isEmpty()) {
-            fxFjoldiOrda.setText("Enginn texti hefur verið sleigin inn,\nvinsamlegast bætið við texta.");
+            fxFjoldiOrda.setText("No words inputted");
         } else {
             strengir.setTexti(lesinnTexti);
             fxStadsetningOrds.setText("0");
@@ -91,20 +102,24 @@ public class HelloController {
 
 
     public void onDictionaryCheck(ActionEvent actionEvent) {
-        String searchWord = fxLeitarord.getText().trim();
+      
+        String searchWord = fxMeaning.getText().trim(); // Get and trim the input from fxLeitarord
 
         if (searchWord.isEmpty()) {
-            fxMeaningDisplay.setText("Sláðu inn leitarorð!");
-        } else {
+            fxMeaning.setPromptText("write a word for the dictionary!"); // Prompt for input if empty
+           } 
+        else {
 
             String meaning = dict.lookupInDictionary(searchWord);
 
-            if (meaning.equals(searchWord + " fannst ekki í orðabókinni.") || meaning.equals("Villa við að leita að orði.")) {
 
-                fxMeaningDisplay.setText(meaning);
+
+            if (meaning.equals(searchWord + " was not found in the dictionary") || meaning.equals("Error searching for a word")) {
+                // If no meaning found, display an error message
+                dictName.setText(meaning);
             } else {
-
-                fxMeaningDisplay.setText(meaning);
+                // Display the found meaning
+                dictName.setText(meaning);
             }
         }
     }
