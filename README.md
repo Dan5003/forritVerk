@@ -31,11 +31,13 @@ to run this program, you need:
 
 1. Download this project to your computer.
 
-2. Navigate to the projects directory in your terminal.
+2. you can download it form our github: https://github.com/Dan5003/forritVerk
 
-3. Run ``mvn clean`` to build the program.
+3. Navigate to the projects directory in your terminal.
 
-4. Run ``mvn javafx:run`` to launch the program.
+4. Run ``mvn clean`` to build the program.
+
+5. Run ``mvn javafx:run`` to launch the program.
 
  ## Usage
 
