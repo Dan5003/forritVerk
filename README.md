@@ -13,7 +13,7 @@ Our program features a functions that relate to inspecting text, such as:
   
 * **Word Search:** searching for the amount of appearances of a specified word in the text
   
-* **Dictionary:** searching through the *dictionary api*<sup>link needed</sup> for a definition of the users key word
+* **Dictionary:** searching through the dictionary for a definition of the users key word
 
 
  ## Program Requirements
@@ -25,6 +25,17 @@ to run this program, you need:
 * Maven
 
 * IntelliJ IDEA
+
+
+ ## Installation
+
+1. Download this project to your computer.
+
+2. Navigate to the projects directory in your terminal.
+
+3. Run ``mvn clean`` to build the program.
+
+4. Run ``mvn javafx:run`` to launch the program.
 
  ## Usage
 
