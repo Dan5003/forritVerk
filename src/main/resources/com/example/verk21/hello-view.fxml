@@ -105,9 +105,9 @@
             <Button layoutX="210.0" layoutY="10.0" onAction="#onGetRandomWord" prefHeight="100.0" prefWidth="150.0" text="Random Word" />
          </children>
       </HBox>
-      <HBox prefHeight="161.0" prefWidth="550.0">
+      <HBox prefHeight="161.0" prefWidth="600.0">
          <children>
-            <VBox minWidth="20.0" prefHeight="122.0" prefWidth="457.0" style="-fx-background-color: #; -fx-border-color: #; -fx-border-width: 2;">
+            <VBox prefHeight="122.0" prefWidth="625.0" style="-fx-background-color: #ffffff; -fx-border-color:#6b6a6a; -fx-border-width: 2;">
                <children>
                   <Label fx:id="dictName" wrapText="true">
                      <VBox.margin>
@@ -115,9 +115,9 @@
                      </VBox.margin>
                   </Label>
                </children>
-               <HBox.margin>
-                  <Insets left="40.0" />
-               </HBox.margin>
+<!--               <HBox.margin>-->
+<!--                  <Insets left="40.0" />-->
+<!--               </HBox.margin>-->
             </VBox>
          </children>
       </HBox>
